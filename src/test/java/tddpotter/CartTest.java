@@ -24,4 +24,10 @@ public class CartTest {
         cart.addBooks(new int[]{0});
         assertEquals(8, cart.calculatePrice(), DELTA);
     }
+
+    @Test
+    public void testWithTwoDifferentBooks() {
+        cart.addBooks(new int[]{0, 1});
+        assertEquals(15.2, cart.calculatePrice(), DELTA);
+    }
 }
