@@ -1,13 +1,24 @@
 package tddpotter;
 
+import java.lang.reflect.Array;
+import java.util.HashMap;
+
 /**
  * Created by rodrigonc on 05/06/16.
  */
 public class Cart {
-    public float calculatePrice() {
-        return 0;
+    private int bookPrice;
+    private int[] bookList = {};
+
+    public Cart() {
+        this.bookPrice = 8;
     }
 
-    public void addBooks(int[] ints) {
+    public float calculatePrice() {
+        return Array.getLength(bookList) * bookPrice;
+    }
+
+    public void addBooks(int[] bookList) {
+        this.bookList = bookList;
     }
 }
