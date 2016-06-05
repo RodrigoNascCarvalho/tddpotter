@@ -72,4 +72,10 @@ public class CartTest {
         cart.addBooks(new Integer[]{0, 1, 2, 3, 4});
         assertEquals(30, cart.calculatePrice(), DELTA);
     }
+
+    @Test
+    public void testWithTwoOfSameBook() {
+        cart.addBooks(new Integer[]{0, 0});
+        assertEquals(16, cart.calculatePrice(), DELTA);
+    }
 }
