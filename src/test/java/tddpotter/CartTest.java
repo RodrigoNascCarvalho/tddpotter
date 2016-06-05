@@ -78,4 +78,10 @@ public class CartTest {
         cart.addBooks(new Integer[]{0, 0});
         assertEquals(16, cart.calculatePrice(), DELTA);
     }
+
+    @Test
+    public void testWithThreeOfSameBook() {
+        cart.addBooks(new Integer[]{0, 0, 0});
+        assertEquals(24, cart.calculatePrice(), DELTA);
+    }
 }
