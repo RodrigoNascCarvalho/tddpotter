@@ -20,8 +20,32 @@ public class CartTest {
     }
 
     @Test
-    public void testWithOneBook() {
+    public void testWithBook1() {
         cart.addBooks(new Integer[]{0});
+        assertEquals(8, cart.calculatePrice(), DELTA);
+    }
+
+    @Test
+    public void testWithBook2() {
+        cart.addBooks(new Integer[]{1});
+        assertEquals(8, cart.calculatePrice(), DELTA);
+    }
+
+    @Test
+    public void testWithBook3() {
+        cart.addBooks(new Integer[]{2});
+        assertEquals(8, cart.calculatePrice(), DELTA);
+    }
+
+    @Test
+    public void testWithBook4() {
+        cart.addBooks(new Integer[]{3});
+        assertEquals(8, cart.calculatePrice(), DELTA);
+    }
+
+    @Test
+    public void testWithBook5() {
+        cart.addBooks(new Integer[]{4});
         assertEquals(8, cart.calculatePrice(), DELTA);
     }
 
