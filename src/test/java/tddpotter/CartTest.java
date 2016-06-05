@@ -86,32 +86,42 @@ public class CartTest {
     }
 
     @Test
-    public void testSimpleDiscounts1() {
+    public void testSeveralDiscounts1() {
         cart.addBooks(new Integer[]{0, 0, 1});
         assertEquals(8 + (8 * 2 * 0.95), cart.calculatePrice(), DELTA);
     }
 
     @Test
-    public void testSimpleDiscounts2() {
+    public void testSeveralDiscounts2() {
         cart.addBooks(new Integer[]{0, 0, 1, 1});
         assertEquals(2 * (8 * 2 * 0.95), cart.calculatePrice(), DELTA);
     }
 
     @Test
-    public void testSimpleDiscounts3() {
+    public void testSeveralDiscounts3() {
         cart.addBooks(new Integer[]{0, 0, 1, 2, 2, 3});
         assertEquals((8 * 4 * 0.8) + (8 * 2 * 0.95), cart.calculatePrice(), DELTA);
     }
 
     @Test
-    public void testSimpleDiscounts4() {
+    public void testSeveralDiscounts4() {
         cart.addBooks(new Integer[]{0, 1, 1, 2, 3, 4});
         assertEquals(8 + (8 * 5 * 0.75), cart.calculatePrice(), DELTA);
     }
 
     @Test
-    public void testWithTwoSetsOfDifferentBooks() {
+    public void testEdgeCases1() {
         cart.addBooks(new Integer[]{0, 0, 1, 1, 2, 2, 3, 4});
         assertEquals(51.2, cart.calculatePrice(), DELTA);
+    }
+
+    @Test
+    public void testEdgeCases2() {
+        cart.addBooks(new Integer[]{0, 0, 0, 0, 0,
+                                    1, 1, 1, 1, 1,
+                                    2, 2, 2, 2,
+                                    3, 3, 3, 3, 3,
+                                    4, 4, 4, 4});
+        assertEquals(3 * (8 * 5 * 0.75) + 2 * (8 * 4 * 0.8), cart.calculatePrice(), DELTA);
     }
 }
