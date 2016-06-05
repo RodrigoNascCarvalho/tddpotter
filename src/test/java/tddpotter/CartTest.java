@@ -124,4 +124,16 @@ public class CartTest {
                                     4, 4, 4, 4});
         assertEquals(3 * (8 * 5 * 0.75) + 2 * (8 * 4 * 0.8), cart.calculatePrice(), DELTA);
     }
+
+    @Test
+    public void testEdgeCases3() {
+        cart.addBooks(new Integer[]{0, 0, 0, 1, 1, 2, 2, 2, 2, 3, 3, 4});
+        assertEquals(78.8, cart.calculatePrice(), DELTA);
+    }
+
+    @Test
+    public void testEdgeCases4() {
+        cart.addBooks(new Integer[]{0, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4});
+        assertEquals(100, cart.calculatePrice(), DELTA);
+    }
 }
