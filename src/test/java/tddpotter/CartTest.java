@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class CartTest {
-    private static final double DELTA = 1e-15;
+    private static final double DELTA = 0.01;
     private Cart cart;
 
     @Before
