@@ -18,4 +18,10 @@ public class CartTest {
     public void testWithNoBook() {
         assertEquals(0, cart.calculatePrice(), DELTA);
     }
+
+    @Test
+    public void testWithOneBook() {
+        cart.addBooks(new int[]{0});
+        assertEquals(8, cart.calculatePrice(), DELTA);
+    }
 }

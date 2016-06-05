@@ -7,4 +7,7 @@ public class Cart {
     public float calculatePrice() {
         return 0;
     }
+
+    public void addBooks(int[] ints) {
+    }
 }
