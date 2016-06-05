@@ -86,6 +86,30 @@ public class CartTest {
     }
 
     @Test
+    public void testSimpleDiscounts1() {
+        cart.addBooks(new Integer[]{0, 0, 1});
+        assertEquals(8 + (8 * 2 * 0.95), cart.calculatePrice(), DELTA);
+    }
+
+    @Test
+    public void testSimpleDiscounts2() {
+        cart.addBooks(new Integer[]{0, 0, 1, 1});
+        assertEquals(2 * (8 * 2 * 0.95), cart.calculatePrice(), DELTA);
+    }
+
+    @Test
+    public void testSimpleDiscounts3() {
+        cart.addBooks(new Integer[]{0, 0, 1, 2, 2, 3});
+        assertEquals((8 * 4 * 0.8) + (8 * 2 * 0.95), cart.calculatePrice(), DELTA);
+    }
+
+    @Test
+    public void testSimpleDiscounts4() {
+        cart.addBooks(new Integer[]{0, 1, 1, 2, 3, 4});
+        assertEquals(8 + (8 * 5 * 0.75), cart.calculatePrice(), DELTA);
+    }
+
+    @Test
     public void testWithTwoSetsOfDifferentBooks() {
         cart.addBooks(new Integer[]{0, 0, 1, 1, 2, 2, 3, 4});
         assertEquals(51.2, cart.calculatePrice(), DELTA);
